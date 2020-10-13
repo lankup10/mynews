@@ -29,7 +29,7 @@ class ProfileController extends Controller
     }
 }
 
-
+// 【10/13 再提出】
 // 1.ControllerとRoutingについてわからないこと
 // →そもそも詳細な説明への言及がないので、今のところなし
 // 2.Controllerの役割
