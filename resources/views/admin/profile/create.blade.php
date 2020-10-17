@@ -19,8 +19,8 @@
 // →　ユーザー名など、そのユーザーに応じたHTMLデータを表示するため。
 　　　プログラミング言語やフレームワークを使わないと、固定されたHTMLデータしか表示できない。
 // 課題３
-// →　add Action:　add/profile配下にcreate.blade.phpというファイルを設置
-// →　edit Action:　add/profile配下にedit.blade.phpというファイルを設置
+// →　add Action:　admin/profile配下にcreate.blade.phpというファイルを設置
+// →　edit Action:　admin/profile配下にedit.blade.phpというファイルを設置
 　　　
 
 
