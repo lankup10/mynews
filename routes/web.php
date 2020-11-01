@@ -15,22 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin'], function() {
-    Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+    Route::get('news/create', 'Admin\NewsController@add');
+    Route::post('news/create', 'Admin\NewsController@create');
+    Route::get('profile/edit', 'Admin\ProfileController@edit');
     Route::get('profile/create', 'Admin\ProfileController@add');
-    Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
-    Route::get('profile/create', 'Admin\ProfileController@add')->middleware('auth');
+    Route::post('profile/create', 'Admin\ProfileController@create');
+    Route::post('profile/edit', 'Admin\ProfileController@update');
 });
-
-
-// 以下、「PHP/Laravel 09 Routing」課題
-// 課題１：Routing
-
-// 課題２：同じURLを含む複数のページ（例：課題４のadmin/profile/createやadmin/profile/edit）に対して、
-//         まとめて設定をすることができるという点。
-
-// 課題３：以下のとおり回答します。
-// Route::get('XXX','AAAController@bbb')
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+?>
