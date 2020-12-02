@@ -68,17 +68,23 @@ class ProfileController extends Controller
         $profile_history->edited_at = Carbon::now();
         $profile_history->save();
 
-        return view('admin.profile.edit', ['profile_form' => $profile]);
+        // $profile_histories = new CreateProfileHistory;
+        // $profile_histories->profile_id = $profile->id;
+        // $profile_histories->edited_at = Carbon::now();
+        // $profile_histories->save();
+
+        // return view('admin.profile.edit', ['profile_form' => $profile]);
         // return redirect('admin/profile/edit');
+        return redirect('admin/profile/');
     }
     
     
     public function index(Request $request)
     {
         $cond_title = $request->cond_title;
-        if($cond_titile != '') {
+        if($cond_title != '') {
             // 検索されたら検索結果を取得する
-            $posts = Profile::where('title', $cond_titile)->get();
+            $posts = Profile::where('title', $cond_title)->get();
         } else {
             // それ以外はすべてのプロフィールを取得する
             $posts = Profile::all();
@@ -92,7 +98,7 @@ class ProfileController extends Controller
         $profile = Profile::find($request->id);
         // 削除する
         $profile->delete();
-        return redirect('admin/profile');
+        return redirect('admin/profile/');
     }
 }
 
